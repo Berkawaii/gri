@@ -66,7 +66,7 @@ export default function EditorialView() {
         {/* Artistic Interstitial */}
         <section className="my-60 relative w-full aspect-[21/9] overflow-hidden bg-black flex items-center justify-center">
             <h2 className="text-[10vw] font-serif italic text-white/10 uppercase tracking-tighter animate-pulse">
-               VOID_CULTURE
+               GRI_CULTURE
             </h2>
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50" />
         </section>
@@ -77,7 +77,7 @@ export default function EditorialView() {
       {/* Minimal Footer Spread */}
       <footer className="px-6 md:px-20 py-20 border-t border-black/5 flex flex-col md:flex-row justify-between items-start gap-20">
         <div className="max-w-xs text-[11px] font-bold tracking-widest leading-loose">
-          VOID_ARCHIVE IS A DIGITAL CURATION PROJECT. NO ITEMS ARE FOR SALE THROUGH THIS INTERFACE. ALL COPYRIGHTS TO RESPECTIVE BRANDS.
+          GRI IS A DIGITAL CURATION PROJECT. NO ITEMS ARE FOR SALE THROUGH THIS INTERFACE. ALL COPYRIGHTS TO RESPECTIVE BRANDS.
         </div>
         <div className="flex gap-12 font-serif italic text-xl">
            <a href="#" className="hover:text-accent transition-all">Instagram</a>
