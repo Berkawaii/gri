@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   output: 'export',
   basePath: '/gri',
   assetPrefix: '/gri',
@@ -20,6 +20,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-};
+} as any;
 
 export default nextConfig;
