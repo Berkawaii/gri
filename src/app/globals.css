@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default: Cyber Noir */
+  --background: #050505;
+  --surface: #0A0A0A;
+  --foreground: #F2F2F2;
+  --accent: #CCFF00;
+  --neutral: #262626;
+  --font-heading: var(--font-inter);
+  --font-body: var(--font-inter);
+  --card-border: 1px solid var(--neutral);
+}
+
+[data-theme="raw-editorial"] {
+  --background: #F5F5F0; /* Cream/Beige */
+  --surface: #FFFFFF;
+  --foreground: #000000;
+  --accent: #FF0001; /* Vivid Red */
+  --neutral: #D1D1D1;
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+  --card-border: 0px solid transparent;
+}
+
+[data-theme="brutalist"] {
+  --background: #E0E0E0; /* Concrete Gray */
+  --surface: #FFFFFF;
+  --foreground: #000000;
+  --accent: #000000;
+  --neutral: #000000;
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-space-grotesk);
+  --card-border: 4px solid #000000;
+}
+
+[data-theme="glitch"] {
+  --background: #000000;
+  --surface: #0a0a0a;
+  --foreground: #ffffff;
+  --accent: #00f3ff; /* Electric Cyan */
+  --neutral: #333333;
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --card-border: 1px solid #1a1a1a;
+}
+
+[data-theme="ethereal"] {
+  --background: #0a0a1a; /* Deep Space Navy */
+  --surface: rgba(255, 255, 255, 0.05); /* Frosted Glass Base */
+  --foreground: #ffffff;
+  --accent: #c084fc; /* Mystic Purple */
+  --neutral: rgba(255, 255, 255, 0.1);
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+  --card-border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-accent: var(--accent);
+  --color-neutral: var(--neutral);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-body), sans-serif;
+  --font-serif: var(--font-heading), serif;
+  --font-mono: var(--font-space-grotesk), monospace;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Paper texture effect for raw-editorial */
+[data-theme="raw-editorial"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 100;
 }

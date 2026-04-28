@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;family=Space+Grotesk:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        ::-webkit-scrollbar { width: 2px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #CCFF00; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#c9c6c5",
+                      "surface-dim": "#131313",
+                      "on-surface-variant": "#c4c7c7",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "secondary": "#c6c6c7",
+                      "error-container": "#93000a",
+                      "on-primary": "#313030",
+                      "on-secondary": "#2f3131",
+                      "inverse-primary": "#5f5e5e",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-tertiary-fixed": "#161e00",
+                      "on-primary-fixed-variant": "#474646",
+                      "background": "#0A0A0A",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "on-tertiary-fixed-variant": "#3c4d00",
+                      "on-error-container": "#ffdad6",
+                      "primary-container": "#0a0a0a",
+                      "on-background": "#e4e2e1",
+                      "inverse-surface": "#e4e2e1",
+                      "surface-variant": "#353535",
+                      "tertiary-fixed-dim": "#abd600",
+                      "surface-container-highest": "#353535",
+                      "on-tertiary-container": "#688300",
+                      "on-surface": "#e4e2e1",
+                      "surface": "#0A0A0A",
+                      "outline": "#8e9192",
+                      "surface-container": "#1f2020",
+                      "tertiary-fixed": "#c3f400",
+                      "on-error": "#690005",
+                      "surface-bright": "#393939",
+                      "on-primary-container": "#7b7979",
+                      "secondary-fixed": "#e2e2e2",
+                      "on-tertiary": "#283500",
+                      "outline-variant": "#444748",
+                      "on-secondary-container": "#b4b5b5",
+                      "tertiary-container": "#070c00",
+                      "secondary-container": "#454747",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary": "#CCFF00",
+                      "primary-fixed": "#e5e2e1",
+                      "surface-container-low": "#1b1c1c",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#c9c6c5",
+                      "primary": "#c9c6c5",
+                      "inverse-on-surface": "#303030",
+                      "on-secondary-fixed-variant": "#454747"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-desktop": "64px",
+                      "gutter": "16px",
+                      "margin-mobile": "20px",
+                      "section-gap": "128px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "data-mono": ["Space Grotesk"],
+                      "display-xl": ["Inter"],
+                      "body-base": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-caps": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "120%", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "data-mono": ["14px", {"lineHeight": "140%", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-xl": ["80px", {"lineHeight": "100%", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-base": ["16px", {"lineHeight": "160%", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "headline-lg": ["40px", {"lineHeight": "110%", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "100%", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-base selection:bg-tertiary selection:text-background overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-zinc-950 dark:bg-[#0A0A0A] docked full-width top-0 border-b border-zinc-800 flex justify-between items-center px-6 h-16 w-full z-50 sticky top-0">
+<div class="font-black tracking-widest text-xl text-white">VOID_ARCHIVE</div>
+<nav class="hidden md:flex gap-8 h-full items-center">
+<a class="font-mono uppercase tracking-tighter text-xs text-white border-b-1 border-[#CCFF00] hover:bg-[#CCFF00] hover:text-[#0A0A0A] transition-colors duration-100 h-full flex items-center px-2" href="#">ARCHIVE ACCESS</a>
+<a class="font-mono uppercase tracking-tighter text-xs text-zinc-500 hover:bg-[#CCFF00] hover:text-[#0A0A0A] transition-colors duration-100 h-full flex items-center px-2" href="#">DROP TRACKER</a>
+<a class="font-mono uppercase tracking-tighter text-xs text-zinc-500 hover:bg-[#CCFF00] hover:text-[#0A0A0A] transition-colors duration-100 h-full flex items-center px-2" href="#">COLLECTIONS</a>
+</nav>
+<div class="flex items-center gap-4 text-[#CCFF00]">
+<button class="material-symbols-outlined p-2 hover:bg-[#CCFF00] hover:text-[#0A0A0A] transition-colors duration-100" data-icon="search">search</button>
+<button class="material-symbols-outlined p-2 hover:bg-[#CCFF00] hover:text-[#0A0A0A] transition-colors duration-100" data-icon="shopping_bag">shopping_bag</button>
+</div>
+</header>
+<main class="min-h-screen pb-20 md:pb-0">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-64px)]">
+<!-- Left Side: Moody Product Image -->
+<div class="lg:col-span-7 border-r border-zinc-800 relative group overflow-hidden bg-zinc-900">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent z-10 opacity-60"></div>
+<img alt="Minimalist streetwear" class="w-full h-full object-cover grayscale brightness-75 group-hover:scale-105 transition-transform duration-700" data-alt="Cinematic close-up of a structured black oversized technical jacket on a mannequin, moody low-key studio lighting with sharp highlights and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD_GvfYvJ8K-Aolaw_J90_aMClC1Gdn3MSAID7T5gKvcTHb4YoK0z9qYkK5JjNPTlimVISSiUWAaJ9WA8ZGkRNomzL2TZT5biQ5cUHFLQL546_RDRrIFB7MVbbA0w5Aqp9bFUwP7tefyJ62TAxj00RG2kdeW3CsD6RQUtHHWJe4GYvvA6Wic23XNcMtZhhpQWVWfZViVs7mWpRS_xU9WhvQPmcpNHzCqS_p6dK5FgUasTCCT2DUTHk4a9fhaDQR9wN7aNadFk_dC4"/>
+<!-- Terminal Feed Overlay -->
+<div class="absolute bottom-8 left-8 z-20 hidden md:block">
+<div class="bg-black/40 backdrop-blur-md border border-zinc-700 p-4 font-data-mono text-[10px] text-zinc-400 space-y-1">
+<div class="flex gap-4"><span class="text-tertiary">[SCAN]</span> <span>LOC_OSAKA_DISTRICT_4</span></div>
+<div class="flex gap-4"><span class="text-tertiary">[AUTH]</span> <span>USER_ACCESS_GRANTED</span></div>
+<div class="flex gap-4"><span class="text-tertiary">[SYNC]</span> <span>ARCHIVE_NODE_771.01</span></div>
+</div>
+</div>
+</div>
+<!-- Right Side: Product Details & Specs -->
+<div class="lg:col-span-5 flex flex-col p-8 md:p-16 justify-between bg-[#0A0A0A]">
+<div>
+<!-- Product Header -->
+<div class="mb-12">
+<span class="font-label-caps text-tertiary mb-2 block">NEW ARCHIVE DROP // 0042</span>
+<h1 class="font-display-xl text-white uppercase break-words leading-tight">NEURAL_SHELL V2</h1>
+</div>
+<!-- Technical Specs -->
+<div class="space-y-8 mb-16">
+<div class="grid grid-cols-2 gap-4 border-b border-zinc-800 pb-4">
+<span class="font-data-mono text-zinc-500 text-[10px] uppercase">MODEL_ID</span>
+<span class="font-data-mono text-white text-right">NS-BK-0042-X</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-b border-zinc-800 pb-4">
+<span class="font-data-mono text-zinc-500 text-[10px] uppercase">RELEASE_DATE</span>
+<span class="font-data-mono text-white text-right">24.08.2024</span>
+</div>
+<div class="grid grid-cols-2 gap-4 border-b border-zinc-800 pb-4">
+<span class="font-data-mono text-zinc-500 text-[10px] uppercase">MARKET_INDEX</span>
+<span class="font-data-mono text-tertiary text-right">+14.2% VOL</span>
+</div>
+</div>
+<!-- Size Selection: Glassmorphism -->
+<div class="mb-12">
+<span class="font-label-caps text-zinc-500 mb-4 block">SELECT DIMENSION</span>
+<div class="flex flex-wrap gap-2">
+<button class="w-14 h-14 border border-zinc-700 bg-white/5 backdrop-blur-xl flex items-center justify-center font-data-mono hover:border-tertiary hover:text-tertiary transition-all duration-300">S</button>
+<button class="w-14 h-14 border border-tertiary bg-tertiary/10 backdrop-blur-xl flex items-center justify-center font-data-mono text-tertiary">M</button>
+<button class="w-14 h-14 border border-zinc-700 bg-white/5 backdrop-blur-xl flex items-center justify-center font-data-mono hover:border-tertiary hover:text-tertiary transition-all duration-300">L</button>
+<button class="w-14 h-14 border border-zinc-700 bg-white/5 backdrop-blur-xl flex items-center justify-center font-data-mono hover:border-tertiary hover:text-tertiary transition-all duration-300">XL</button>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="mt-auto pt-8">
+<button class="w-full bg-tertiary text-background py-6 font-label-caps text-base tracking-[0.2em] active:scale-[0.98] transition-transform duration-100 relative group">
+                        SECURE ACCESS
+                        <span class="absolute top-0 right-0 p-1 text-[8px] text-background opacity-50 font-mono">EST_LINK_100%</span>
+</button>
+<div class="mt-6 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-tertiary animate-pulse"></div>
+<span class="font-data-mono text-[10px] text-zinc-500">SYSTEMS_STABLE_ENCRYPTED</span>
+</div>
+<span class="font-data-mono text-white text-lg">$495.00</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-zinc-950/80 backdrop-blur-xl dark:bg-[#0A0A0A]/80 border-t border-zinc-800">
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-mono uppercase text-[10px] tracking-widest">ACCESS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CCFF00] bg-zinc-900/50 p-2 border border-zinc-800" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="grid_view">grid_view</span>
+<span class="font-mono uppercase text-[10px] tracking-widest">ARCHIVE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="schedule">schedule</span>
+<span class="font-mono uppercase text-[10px] tracking-widest">DROPS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-mono uppercase text-[10px] tracking-widest">VAULT</span>
+</a>
+</nav>
+<!-- Background Blueprint Effect -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1]">
+<div class="absolute inset-0" style="background-image: linear-gradient(#CCFF00 1px, transparent 1px), linear-gradient(90deg, #CCFF00 1px, transparent 1px); background-size: 80px 80px;"></div>
+</div>
+</body></html>
