@@ -52,7 +52,7 @@ export default function CyberNoirView() {
           animate="animate"
           className="max-w-[1800px] mx-auto relative z-10"
         >
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
             <div className="max-w-4xl relative">
               <motion.p 
                 variants={fadeInUp}
@@ -62,7 +62,7 @@ export default function CyberNoirView() {
               </motion.p>
               <motion.h1 
                 variants={fadeInUp}
-                className="text-6xl md:text-8xl lg:text-[10rem] font-serif leading-[0.85] tracking-tighter uppercase text-white glitch-text"
+                className="text-5xl md:text-8xl lg:text-[10rem] font-serif leading-[0.85] tracking-tighter uppercase text-white glitch-text"
                 data-text="Gri Archive"
               >
                 Gri<br />Archive
@@ -75,7 +75,7 @@ export default function CyberNoirView() {
               <p className="text-sm text-neutral-400 font-mono leading-relaxed">
                 A hyper-curated digital vault. Accessing raw product telemetry, inventory feeds, and technical specifications.
               </p>
-              <div className="mt-6 flex flex-wrap gap-4 text-[10px] font-mono text-accent/60">
+              <div className="mt-4 md:mt-6 flex flex-wrap gap-4 text-[10px] font-mono text-accent/60">
                 <span>EST. 2026 // v0.1</span>
                 <span>[ HASH: 0x82FA ]</span>
                 <span className="text-white/40">ITEMS: {products.length}</span>

@@ -33,9 +33,17 @@ export default function CyberNoirCard({ product, index, className, onClick }: Cy
   // Determine if any size is in stock
   const inStock = product.sizes.some((size) => size.inStock);
   const status = inStock ? "ONLINE" : "OFFLINE";
-  const formattedPrice = product.prices[0]
-    ? `${product.prices[0].integer} ${product.prices[0].currency}`
+  const hasDiscount = product.prices.length > 1;
+  const currentPrice = product.prices[0];
+  const oldPrice = hasDiscount ? product.prices[1] : null;
+
+  const formattedPrice = currentPrice
+    ? `${currentPrice.integer} ${currentPrice.currency}`
     : "DATA_UNAVAILABLE";
+  
+  const formattedOldPrice = oldPrice
+    ? `${oldPrice.integer} ${oldPrice.currency}`
+    : null;
 
   const mainImage = product.images[0] || "";
   const hexId = `0x${(index * 9999).toString(16).toUpperCase().padStart(4, "0")}`;
@@ -45,7 +53,7 @@ export default function CyberNoirCard({ product, index, className, onClick }: Cy
       variants={fadeInUp}
       onClick={onClick}
       className={cn(
-        "group relative border border-[var(--card-border)] bg-surface overflow-hidden aspect-[3/4] flex flex-col cursor-pointer",
+        "group relative border border-[var(--card-border)] bg-surface overflow-hidden aspect-square md:aspect-[3/4] flex flex-col cursor-pointer",
         className
       )}
     >
@@ -82,16 +90,16 @@ export default function CyberNoirCard({ product, index, className, onClick }: Cy
 
         {/* Overlay scanning effect on hover */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent -translate-y-full group-hover:animate-[scan_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100 pointer-events-none mix-blend-overlay" />
-      </div>
 
-      {/* Hover Technical Stats overlay */}
-      <div className="absolute inset-0 z-20 flex flex-col justify-end items-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="font-mono text-accent text-[9px] tracking-widest text-left space-y-1.5 bg-black/70 backdrop-blur-md border border-accent/40 p-3 shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
-          <p>COLORS_FOUND: {product.colors.length || 1}</p>
-          <p>SIZE_DATA: {product.sizes.length} ENTRIES</p>
-          <p>CAT: {product.category.toUpperCase()}</p>
-          <div className="h-px w-full bg-accent/40 my-1.5" />
-          <p className="animate-pulse opacity-80">AUTHORIZING_ACCESS...</p>
+        {/* Hover Technical Stats overlay */}
+        <div className="absolute inset-0 z-20 flex flex-col justify-end items-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div className="font-mono text-accent text-[9px] tracking-widest text-left space-y-1.5 bg-black/70 backdrop-blur-md border border-accent/40 p-3 shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+            <p>COLORS_FOUND: {product.colors.length || 1}</p>
+            <p>SIZE_DATA: {product.sizes.length} ENTRIES</p>
+            <p>CAT: {product.category.toUpperCase()}</p>
+            <div className="h-px w-full bg-accent/40 my-1.5" />
+            <p className="animate-pulse opacity-80">AUTHORIZING_ACCESS...</p>
+          </div>
         </div>
       </div>
 
@@ -110,12 +118,22 @@ export default function CyberNoirCard({ product, index, className, onClick }: Cy
             </h3>
           </div>
           <div className="text-right flex-shrink-0">
-            <p className="text-[10px] font-mono text-neutral-500 mb-1">
-              SYS_VAL
+            <p className={cn("text-[10px] font-mono mb-1", hasDiscount ? "text-red-500 animate-pulse" : "text-neutral-500")}>
+              {hasDiscount ? "PRICE_DROP" : "SYS_VAL"}
             </p>
-            <p className="text-lg font-mono font-bold text-accent">
-              {formattedPrice}
-            </p>
+            <div className="flex flex-col items-end leading-none">
+              {hasDiscount && (
+                <span className="text-[10px] font-mono text-neutral-500 line-through mb-1">
+                  {formattedOldPrice}
+                </span>
+              )}
+              <p 
+                className={cn("text-lg font-mono font-bold text-accent", hasDiscount && "glitch-text")}
+                data-text={formattedPrice}
+              >
+                {formattedPrice}
+              </p>
+            </div>
           </div>
         </div>
       </div>

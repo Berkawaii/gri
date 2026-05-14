@@ -127,13 +127,15 @@ body {
   background: var(--background);
   opacity: 0;
 }
-.glitch-text:hover::before {
+.glitch-text:hover::before,
+.group:hover .glitch-text::before {
   opacity: 0.8;
   left: 2px;
   text-shadow: -1px 0 red;
   animation: glitch-anim 2s infinite linear alternate-reverse;
 }
-.glitch-text:hover::after {
+.glitch-text:hover::after,
+.group:hover .glitch-text::after {
   opacity: 0.8;
   left: -2px;
   text-shadow: -1px 0 blue;

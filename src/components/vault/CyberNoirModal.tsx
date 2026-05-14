@@ -76,13 +76,21 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
     };
   }, []);
 
-  const formattedPrice = product.prices[0]
-    ? `${product.prices[0].integer} ${product.prices[0].currency}`
+  const hasDiscount = product.prices.length > 1;
+  const currentPrice = product.prices[0];
+  const oldPrice = hasDiscount ? product.prices[1] : null;
+
+  const formattedPrice = currentPrice
+    ? `${currentPrice.integer} ${currentPrice.currency}`
     : "DATA_UNAVAILABLE";
+  
+  const formattedOldPrice = oldPrice
+    ? `${oldPrice.integer} ${oldPrice.currency}`
+    : null;
 
   return (
     <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-xl"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-8 bg-black/90 backdrop-blur-xl"
       onWheel={(e) => e.stopPropagation()}
     >
       {/* Main Modal Container */}
@@ -91,7 +99,7 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
         initial="hidden"
         animate="animate"
         exit="exit"
-        className="relative w-full max-w-7xl h-[90vh] bg-black border border-accent/40 shadow-[0_0_50px_rgba(204,255,0,0.1)] flex flex-col overflow-hidden"
+        className="relative w-full max-w-7xl h-[100dvh] md:h-[90vh] bg-black md:border border-accent/40 shadow-[0_0_50px_rgba(204,255,0,0.1)] flex flex-col overflow-hidden"
       >
         {/* Decorative Grid Lines */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ccff0005_1px,transparent_1px),linear-gradient(to_bottom,#ccff0005_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
@@ -118,7 +126,7 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
           {/* Left: Image Gallery */}
           <div className="w-full lg:w-3/5 lg:h-full border-b lg:border-b-0 lg:border-r border-accent/30 flex flex-col p-4 md:p-8 gap-4 min-h-0 lg:overflow-y-auto overscroll-contain">
             {/* Main Image */}
-            <div className="relative w-full h-[300px] lg:h-full lg:min-h-[400px] bg-neutral-900/50 border border-accent/20 flex-shrink-0 group overflow-hidden">
+            <div className="relative w-full h-[250px] md:h-[300px] lg:h-full lg:min-h-[400px] bg-neutral-900/50 border border-accent/20 flex-shrink-0 group overflow-hidden">
               <Image
                 src={product.images[activeImage]}
                 alt={product.name}
@@ -138,7 +146,7 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
                   key={idx}
                   onClick={() => setActiveImage(idx)}
                   className={cn(
-                    "relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 border bg-neutral-900/50 transition-all duration-300 overflow-hidden cursor-pointer",
+                    "relative w-16 h-16 md:w-24 md:h-24 flex-shrink-0 border bg-neutral-900/50 transition-all duration-300 overflow-hidden cursor-pointer",
                     activeImage === idx ? "border-accent scale-105" : "border-neutral-800 opacity-50 hover:opacity-100 hover:border-accent/50"
                   )}
                 >
@@ -153,15 +161,22 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
             
             {/* Title & Brand */}
             <div>
-              <p className="text-xs font-mono text-accent/80 tracking-[0.2em] mb-2 uppercase">
+              <p className="text-[10px] md:text-xs font-mono text-accent/80 tracking-[0.2em] mb-2 uppercase">
                 // {product.brand}
               </p>
-              <h1 className="text-3xl md:text-5xl font-sans font-bold uppercase tracking-tight text-white mb-4 glitch-text" data-text={product.name}>
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-sans font-bold uppercase tracking-tight text-white mb-2 glitch-text" data-text={product.name}>
                 {product.name}
               </h1>
-              <p className="text-2xl md:text-3xl font-mono text-accent">
-                {formattedPrice}
-              </p>
+              <div className="flex items-center gap-4">
+                <p className="text-xl md:text-3xl font-mono text-accent">
+                  {formattedPrice}
+                </p>
+                {hasDiscount && (
+                  <p className="text-sm md:text-lg font-mono text-red-500/80 line-through">
+                    {formattedOldPrice}
+                  </p>
+                )}
+              </div>
             </div>
 
             {/* Sizes Matrix */}
