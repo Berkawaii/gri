@@ -124,19 +124,20 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
         <div className="flex-grow min-h-0 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden relative z-20">
           
           {/* Left: Image Gallery */}
-          <div className="w-full lg:w-3/5 lg:h-full border-b lg:border-b-0 lg:border-r border-accent/30 flex flex-col p-4 md:p-8 gap-4 min-h-0 lg:overflow-y-auto overscroll-contain">
+          <div className="w-full lg:w-3/5 lg:h-full shrink-0 lg:shrink border-b lg:border-b-0 lg:border-r border-accent/30 flex flex-col p-4 md:p-8 gap-4 min-h-0 lg:overflow-y-auto overscroll-contain">
             {/* Main Image */}
-            <div className="relative w-full h-[250px] md:h-[300px] lg:h-full lg:min-h-[400px] bg-neutral-900/50 border border-accent/20 flex-shrink-0 group overflow-hidden">
+            <div className="relative w-full h-[250px] md:h-[300px] lg:h-full lg:min-h-[400px] bg-[#F5F5F5] border border-accent/20 flex-shrink-0 group overflow-hidden">
               <Image
                 src={product.images[activeImage]}
                 alt={product.name}
                 fill
-                className="object-contain transition-transform duration-500 group-hover:scale-105"
+                className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute top-4 left-4 font-mono text-accent text-xs px-2 py-1 bg-black/80 border border-accent/30 pointer-events-none">
+              <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.3)] pointer-events-none z-10" />
+              <div className="absolute top-4 left-4 font-mono text-accent text-xs px-2 py-1 bg-black/80 border border-accent/30 pointer-events-none z-20">
                 IMG_{activeImage.toString().padStart(2, "0")}
               </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent -translate-y-full animate-[scan_3s_ease-in-out_infinite] pointer-events-none mix-blend-overlay opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent -translate-y-full animate-[scan_3s_ease-in-out_infinite] pointer-events-none mix-blend-overlay opacity-50 z-20" />
             </div>
 
             {/* Thumbnails */}
@@ -146,18 +147,19 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
                   key={idx}
                   onClick={() => setActiveImage(idx)}
                   className={cn(
-                    "relative w-16 h-16 md:w-24 md:h-24 flex-shrink-0 border bg-neutral-900/50 transition-all duration-300 overflow-hidden cursor-pointer",
+                    "relative w-16 h-16 md:w-24 md:h-24 flex-shrink-0 border bg-[#F5F5F5] transition-all duration-300 overflow-hidden cursor-pointer",
                     activeImage === idx ? "border-accent scale-105" : "border-neutral-800 opacity-50 hover:opacity-100 hover:border-accent/50"
                   )}
                 >
-                  <Image src={img} alt={`Thumb ${idx}`} fill className="object-contain grayscale hover:grayscale-0 transition-all duration-300 pointer-events-none" />
+                  <Image src={img} alt={`Thumb ${idx}`} fill className="object-contain mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.3)] pointer-events-none" />
                 </button>
               ))}
             </div>
           </div>
 
           {/* Right: Details & Telemetry */}
-          <div className="w-full lg:w-2/5 lg:h-full p-4 md:p-8 bg-black/95 min-h-0 lg:overflow-y-auto flex flex-col gap-8 overscroll-contain">
+          <div className="w-full lg:w-2/5 lg:h-full shrink-0 lg:shrink p-4 md:p-8 bg-black/95 min-h-0 lg:overflow-y-auto flex flex-col gap-8 overscroll-contain">
             
             {/* Title & Brand */}
             <div>
@@ -218,6 +220,19 @@ export default function CyberNoirModal({ product, onClose }: CyberNoirModalProps
                 ))}
               </motion.p>
             </div>
+
+            {/* Action Button */}
+            <a
+              href={product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 group relative flex items-center justify-center p-4 border border-accent bg-black text-accent hover:text-black overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(204,255,0,0.1)] hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-accent -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+              <span className="relative z-10 font-mono tracking-[0.2em] text-sm uppercase font-bold flex items-center gap-3">
+                <span className="animate-pulse">{"=>"}</span> INITIATE_PURCHASE
+              </span>
+            </a>
 
           </div>
         </div>

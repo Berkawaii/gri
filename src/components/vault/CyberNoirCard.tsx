@@ -77,19 +77,22 @@ export default function CyberNoirCard({ product, index, className, onClick }: Cy
       </div>
 
       {/* Image Container */}
-      <div className="relative flex-grow overflow-hidden bg-black">
+      <div className="relative flex-grow overflow-hidden bg-[#F5F5F5]">
         {mainImage && (
           <Image
             src={mainImage}
             alt={product.name}
             fill
-            className="object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110"
+            className="object-contain mix-blend-multiply grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
 
+        {/* Vignette Shadow to blend edges into the dark theme */}
+        <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.3)] pointer-events-none z-10" />
+
         {/* Overlay scanning effect on hover */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent -translate-y-full group-hover:animate-[scan_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100 pointer-events-none mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent -translate-y-full group-hover:animate-[scan_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100 pointer-events-none mix-blend-overlay z-10" />
 
         {/* Hover Technical Stats overlay */}
         <div className="absolute inset-0 z-20 flex flex-col justify-end items-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
