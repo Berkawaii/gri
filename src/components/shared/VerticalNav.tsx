@@ -47,7 +47,7 @@ export default function VerticalNav() {
         ))}
       </div>
 
-      <div className="text-[10px] font-mono text-neutral-400 rotate-90 origin-center">
+      <div className="text-[10px] font-mono text-neutral-400 rotate-90 origin-center mb-8 whitespace-nowrap">
         ©2026_UFA
       </div>
     </motion.nav>

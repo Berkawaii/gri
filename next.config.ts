@@ -2,9 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig = {
   output: 'export',
-  distDir: 'out',
-  basePath: '/gri',
-  assetPrefix: '/gri',
   images: {
     unoptimized: true,
     remotePatterns: [

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/ThemeContext";
+import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,9 +35,11 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${playfair.variable} antialiased`}
     >
       <body className="font-sans bg-background text-foreground selection:bg-accent selection:text-black transition-colors duration-500">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

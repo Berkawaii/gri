@@ -1,12 +1,8 @@
 "use client";
 
 import SmoothScroll from "@/components/shared/SmoothScroll";
-import ThemeSwitcher from "@/components/shared/ThemeSwitcher";
+import AuthButton from "@/components/shared/AuthButton";
 import CyberNoirView from "@/components/views/CyberNoirView";
-import EditorialView from "@/components/views/EditorialView";
-import BrutalistView from "@/components/views/BrutalistView";
-import GlitchView from "@/components/views/GlitchView";
-import EtherealView from "@/components/views/EtherealView";
 import { useTheme } from "@/lib/ThemeContext";
 
 export default function Home() {
@@ -14,12 +10,8 @@ export default function Home() {
 
   return (
     <SmoothScroll>
-      <ThemeSwitcher />
-      {theme === "raw-editorial" && <EditorialView />}
-      {theme === "cyber-noir" && <CyberNoirView />}
-      {theme === "brutalist" && <BrutalistView />}
-      {theme === "glitch" && <GlitchView />}
-      {theme === "ethereal" && <EtherealView />}
+      <AuthButton />
+      <CyberNoirView />
     </SmoothScroll>
   );
 }
