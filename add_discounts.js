@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const dbPath = './database.json';
+const dbPath = './adidas_database.json';
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
 let discountedCount = 0;

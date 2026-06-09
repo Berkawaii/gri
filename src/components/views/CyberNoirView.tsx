@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/framer-variants";
 import CyberNoirCard, { DatabaseProduct } from "@/components/vault/CyberNoirCard";
 import CyberNoirModal from "@/components/vault/CyberNoirModal";
-import database from "../../../database.json";
+import database from "../../../adidas_database.json";
 
 export default function CyberNoirView() {
   const [filter, setFilter] = useState("ALL_ITEMS");
